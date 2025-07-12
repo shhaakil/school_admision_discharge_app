@@ -7,8 +7,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Noto+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Noto Sans Arabic', sans-serif; }
-    .urdu-font { font-family: 'Noto Nastaliq Urdu', serif; }
+    body {
+      font-family: 'Noto Sans Arabic', sans-serif;
+      background: linear-gradient(to bottom right, #e0f2fe, #bbdefb); /* Light blue gradient background */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+    .urdu-font {
+      font-family: 'Noto Nastaliq Urdu', serif;
+    }
     .loader {
       border: 3px solid #f3f3f3;
       border-radius: 50%;
@@ -22,110 +32,188 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    /* Custom styles for the modern look */
+    .card {
+      background-color: #ffffff;
+      border-radius: 1.5rem; /* More rounded corners */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Softer shadow */
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .input-field {
+      background-color: #f9fafb; /* Light input background */
+      border: 1px solid #e5e7eb; /* Subtle border */
+      border-radius: 0.75rem; /* Rounded input fields */
+      padding: 0.75rem 1rem;
+      transition: all 0.2s ease-in-out;
+    }
+    .input-field:focus {
+      border-color: #60a5fa; /* Blue focus border */
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3); /* Blue focus ring */
+      background-color: #ffffff;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #6366f1, #8b5cf6); /* Gradient button */
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(to right, #4f46e5, #7c3aed);
+      box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+    }
+    .table-header {
+      background-color: #e0f2fe; /* Light blue header for table */
+      color: #2563eb; /* Darker blue text */
+      font-weight: 700;
+      text-align: right; /* Align text to right for RTL */
+    }
+    .table-cell {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: right; /* Align text to right for RTL */
+    }
+    .table-row:nth-child(even) {
+      background-color: #f9fafb; /* Zebra striping for table rows */
+    }
+    .table-row:hover {
+      background-color: #eff6ff; /* Hover effect for table rows */
+    }
+    .header-section {
+      background: linear-gradient(to right, #a78bfa, #c4b5fd); /* Header gradient */
+      color: white;
+      padding: 1.5rem 0;
+      border-radius: 1.5rem 1.5rem 0 0; /* Rounded top corners */
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .header-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .header-section p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
   </style>
 </head>
 <body class="bg-gray-50">
-  <div class="container mx-auto px-4 py-8 max-w-4xl">
+  <div class="container mx-auto px-4 py-8 max-w-5xl">
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1 class="urdu-font">سکول داخل و خارج ریکارڈ</h1>
+      <p class="urdu-font">طلباء کے ریکارڈ کو آسانی سے منظم کریں۔</p>
+    </div>
+
     <!-- Admission Form -->
-    <div class="bg-white rounded-xl shadow-lg mb-8 p-6 md:p-8">
-      <h1 class="text-2xl md:text-3xl font-semibold text-gray-800 text-center mb-6 urdu-font">سکول داخل و خارج ریکارڈ</h1>
+    <div class="card">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 text-center mb-6 urdu-font">نیا داخلہ فارم</h2>
       <form id="admissionForm" class="space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">تاریخ داخلہ</label>
-            <input type="date" name="تاریخ داخلہ" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">تاریخ داخلہ</label>
+            <input type="date" name="تاریخ داخلہ" class="w-full input-field" required>
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">سلسلہ نمبر</label>
-            <input type="text" name="سلسلہ نمبر" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">سلسلہ نمبر</label>
+            <input type="text" name="سلسلہ نمبر" class="w-full input-field" required>
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">نام</label>
-            <input type="text" name="نام" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">نام</label>
+            <input type="text" name="نام" class="w-full input-field" required>
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">تاریخ پیدائش</label>
-            <input type="date" name="تاریخ پیدائش" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">تاریخ پیدائش</label>
+            <input type="date" name="تاریخ پیدائش" class="w-full input-field" required>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">باپ کا نام</label>
+            <input type="text" name="باپ کا نام" class="w-full input-field" required>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">قوم</label>
+            <input type="text" name="قوم" class="w-full input-field">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">زراعت</label>
+            <select name="زراعت" class="w-full input-field">
+              <option>زراعت</option>
+              <option>غیر زراعت</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">پیشہ</label>
+            <input type="text" name="پیشہ" class="w-full input-field">
           </div>
         </div>
 
         <div class="space-y-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">سکونت</label>
+            <input type="text" name="سکونت" class="w-full input-field">
+          </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">باپ کا نام</label>
-              <input type="text" name="باپ کا نام" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+              <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">ابتدائی جماعت</label>
+              <input type="text" name="ابتدائی جماعت" class="w-full input-field">
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">قوم</label>
-              <input type="text" name="قوم" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+              <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">آخری جماعت</label>
+              <input type="text" name="آخری جماعت" class="w-full input-field">
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">زراعت</label>
-              <select name="زراعت" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
-                <option>زراعت</option>
-                <option>غیر زراعت</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">پیشہ</label>
-              <input type="text" name="پیشہ" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+              <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">چھوڑنے کی تاریخ</label>
+              <input type="date" name="چھوڑنے کی تاریخ" class="w-full input-field">
             </div>
           </div>
-
-          <div class="space-y-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">سکونت</label>
-              <input type="text" name="سکونت" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">ابتدائی جماعت</label>
-                <input type="text" name="ابتدائی جماعت" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">آخری جماعت</label>
-                <input type="text" name="آخری جماعت" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">چھوڑنے کی تاریخ</label>
-                <input type="date" name="چھوڑنے کی تاریخ" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">کیفیت</label>
-              <textarea name="کیفیت" rows="3" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"></textarea>
-            </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">کیفیت</label>
+            <textarea name="کیفیت" rows="3" class="w-full input-field"></textarea>
           </div>
         </div>
 
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200">
+        <button type="submit" class="w-full btn-primary flex items-center justify-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+          </svg>
           محفوظ کریں
         </button>
+        <p id="msg" class="mt-4 text-center text-sm font-medium"></p>
       </form>
-      <p id="msg" class="mt-4 text-center text-sm font-medium"></p>
     </div>
 
     <!-- Search Section -->
-    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
-      <h1 class="text-2xl md:text-3xl font-semibold text-gray-800 text-center mb-6 urdu-font">ریکارڈ تلاش کریں</h1>
-      
+    <div class="card">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 text-center mb-6 urdu-font">ریکارڈ تلاش کریں</h2>
+
       <div class="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">سلسلہ نمبر</label>
-          <input type="text" id="serialInput" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+          <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">سلسلہ نمبر</label>
+          <input type="text" id="serialInput" class="w-full input-field">
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">نام</label>
-          <input type="text" id="nameInput" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+          <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">نام</label>
+          <input type="text" id="nameInput" class="w-full input-field">
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">باپ کا نام</label>
-          <input type="text" id="fatherNameInput" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+          <label class="block text-sm font-medium text-gray-700 mb-2 urdu-font">باپ کا نام</label>
+          <input type="text" id="fatherNameInput" class="w-full input-field">
         </div>
       </div>
 
       <div class="text-center mb-6">
-        <button id="searchButton" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-8 rounded-lg transition-colors duration-200">
+        <button id="searchButton" class="btn-primary inline-flex items-center justify-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+          </svg>
           تلاش کریں
         </button>
       </div>
@@ -138,19 +226,19 @@
           <table id="resultsTable" class="w-full divide-y divide-gray-200 hidden">
             <thead class="bg-gray-50">
               <tr>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">تاریخ داخلہ</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">سلسلہ نمبر</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">نام</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">تاریخ پیدائش</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">باپ کا نام</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">قوم</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">زراعت</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">پیشہ</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">سکونت</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">ابتدائی</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">آخری</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">چھوڑنے کی تاریخ</th>
-                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right">کیفیت</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">تاریخ داخلہ</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">سلسلہ نمبر</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">نام</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">تاریخ پیدائش</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">باپ کا نام</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">قوم</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">زراعت</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">پیشہ</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">سکونت</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">ابتدائی جماعت</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">آخری جماعت</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">چھوڑنے کی تاریخ</th>
+                <th class="px-4 py-3 text-xs font-medium text-gray-500 text-right urdu-font table-header">کیفیت</th>
               </tr>
             </thead>
             <tbody id="resultsBody" class="bg-white divide-y divide-gray-200">
@@ -159,24 +247,33 @@
         </div>
       </div>
     </div>
+    <!-- Footer -->
+    <div class="text-center mt-8 text-gray-600 text-sm urdu-font">
+      <p>&copy; 2024 مدرسہ ریکارڈز. جملہ حقوق محفوظ ہیں۔</p>
+    </div>
   </div>
-</body>
-</html>
 
   <script>
-    // ========== Save to Sheet Functionality ==========
+    const SAVE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwYaNO9cS7a6nKD9ZtAWkWNUVQcLBIdCcHKaDdT-7htZ8fLgo379Q5VlBfVJpk1CZTy/exec';
+    const SEARCH_SCRIPT_URL = SAVE_SCRIPT_URL;
+
     const form = document.getElementById("admissionForm");
     const msg = document.getElementById("msg");
-    const SAVE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN7mhRkeEJcqmx0t3mEQk6fJ47mE_sTb2FcHKktxw8P8UDtR2w3IQV3l_4XIXJHfG7/exec';
 
     form.addEventListener("submit", e => {
       e.preventDefault();
       const data = new FormData(form);
-      const values = Object.fromEntries(data.entries());
-
+      const values = {};
+      for (const [key, value] of data.entries()) {
+        if (value && key.includes("تاریخ")) {
+          const [year, month, day] = value.split('-');
+          values[key] = `${day}-${month}-${year}`;
+        } else {
+          values[key] = value;
+        }
+      }
       fetch(SAVE_SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
         body: JSON.stringify(values),
       })
       .then(() => {
@@ -185,33 +282,26 @@
         msg.classList.remove('text-red-600');
         form.reset();
       })
-      .catch(error => {
+      .catch(() => {
         msg.textContent = "محفوظ کرنے میں خرابی! دوبارہ کوشش کریں۔";
         msg.classList.add('text-red-600');
         msg.classList.remove('text-green-600');
       });
     });
 
-    // ========== Search/Retrieval Functionality ==========
-    const SEARCH_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN7mhRkeEJcqmx0t3mEQk6fJ47mE_sTb2FcHKktxw8P8UDtR2w3IQV3l_4XIXJHfG7/exec';
     const serialInput = document.getElementById('serialInput');
     const nameInput = document.getElementById('nameInput');
     const fatherNameInput = document.getElementById('fatherNameInput');
     const searchButton = document.getElementById('searchButton');
-    const resultsArea = document.getElementById('resultsArea');
     const resultsTable = document.getElementById('resultsTable');
     const resultsBody = document.getElementById('resultsBody');
     const statusMessage = document.getElementById('statusMessage');
     const loadingIndicator = document.getElementById('loading');
 
-    // Event Listeners
     searchButton.addEventListener('click', fetchData);
     [serialInput, nameInput, fatherNameInput].forEach(input => {
-      input.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          fetchData();
-        }
+      input.addEventListener('keypress', e => {
+        if (e.key === 'Enter') fetchData();
       });
     });
 
@@ -221,67 +311,72 @@
       const fatherName = fatherNameInput.value.trim();
 
       if (!serial && !name && !fatherName) {
-        statusMessage.textContent = 'براہ کرم تلاش کے لیے کم از کم ایک فیلڈ بھریں۔';
-        statusMessage.classList.remove('hidden');
-        resultsTable.classList.add('hidden');
+        statusMessage.textContent = 'براہ کرم کم از کم ایک فیلڈ بھریں۔';
         return;
       }
 
-      resultsBody.innerHTML = '';
-      statusMessage.textContent = '';
-      resultsTable.classList.add('hidden');
       loadingIndicator.classList.remove('hidden');
-      searchButton.disabled = true;
-
-      const queryParams = new URLSearchParams();
-      if (serial) queryParams.append('serial', serial);
-      if (name) queryParams.append('name', name);
-      if (fatherName) queryParams.append('fatherName', fatherName);
+      resultsTable.classList.add('hidden');
+      statusMessage.textContent = '';
+      resultsBody.innerHTML = '';
 
       try {
-        const response = await fetch(`${SEARCH_SCRIPT_URL}?${queryParams.toString()}`);
-        if (!response.ok) throw new Error(`HTTP خرابی: ${response.status}`);
-        
-        const result = await response.json();
-        if (result.error) throw new Error(result.error);
-        
-        displayResults(result.data);
-      } catch (error) {
-        console.error('Fetch Error:', error);
-        statusMessage.textContent = `ڈیٹا حاصل کرنے میں خرابی: ${error.message}`;
-        statusMessage.classList.remove('hidden');
+        const params = new URLSearchParams();
+        if (serial) params.append('serial', serial);
+        if (name) params.append('name', name);
+        if (fatherName) params.append('fatherName', fatherName);
+
+        const res = await fetch(`${SEARCH_SCRIPT_URL}?${params}`);
+        const json = await res.json();
+
+        if (json.error) throw new Error(json.error);
+        if (!json.data || json.data.length === 0) {
+          statusMessage.textContent = 'کوئی ریکارڈ نہیں ملا۔';
+          return;
+        }
+
+        displayResults(json.data);
+      } catch (err) {
+        statusMessage.textContent = `خرابی: ${err.message}`;
       } finally {
         loadingIndicator.classList.add('hidden');
-        searchButton.disabled = false;
       }
     }
 
     function displayResults(data) {
-      resultsBody.innerHTML = '';
-      if (!data || data.length === 0) {
-        statusMessage.textContent = 'کوئی مماثل ریکارڈ نہیں ملا۔';
-        statusMessage.classList.remove('hidden');
-        return;
-      }
-
       resultsTable.classList.remove('hidden');
       const columns = [
         "تاریخ داخلہ", "سلسلہ نمبر", "نام", "تاریخ پیدائش", "باپ کا نام",
         "قوم", "زراعت", "پیشہ", "سکونت", "ابتدائی جماعت",
-        "اخری جماعت", "چھوڑنے کی تاریخ", "کیفیت"
+        "آخری جماعت", "چھوڑنے کی تاریخ", "کیفیت"
       ];
+
+      resultsBody.innerHTML = ''; // Clear previous results
 
       data.forEach(row => {
         const tr = document.createElement('tr');
-        tr.classList.add('border-b', 'border-gray-200', 'hover:bg-gray-50');
-        
+        tr.classList.add('hover:bg-gray-50', 'table-row'); // Add table-row class
+
         columns.forEach(col => {
           const td = document.createElement('td');
-          td.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
-          td.textContent = row[col] || '';
+          td.classList.add('border', 'px-4', 'py-2', 'table-cell'); // Add table-cell class
+
+          let value = row[col] || "";
+
+          // Fix: Remove time part from ISO string if exists
+          if (typeof value === 'string' && value.includes('T')) {
+            try {
+              const dateObj = new Date(value);
+              value = dateObj.toISOString().split('T')[0];   // Only yyyy-MM-dd
+            } catch (e) {
+              // Leave value as-is
+            }
+          }
+
+          td.textContent = value;
           tr.appendChild(td);
         });
-        
+
         resultsBody.appendChild(tr);
       });
     }
